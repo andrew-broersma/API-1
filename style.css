@@ -1,8 +1,30 @@
+body {
+    background-color: slategray;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 .card {
     display: inline-block;
+    background-color: whitesmoke;
     border: 5px solid black;
+    border-radius: 10px;
     width: auto;
     height: auto;
     margin: 4px;
     padding: 10px;
+    text-align: center;
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited {
+    color: darkslategray;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: unset;
 }

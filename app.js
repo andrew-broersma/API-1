@@ -1,6 +1,6 @@
 const baseURL = "https://pokeapi.co/api/v2/type/"
 const form = document.getElementById("userQuery")
-const userInput = document.getElementById("inputField")
+const userInput = document.getElementById("types")
 const cards = document.querySelector(".cardHolder")
 const submit = document.getElementById("submitButton")
 const newURL = "https://pokeapi.co/api/v2/pokemon/"
@@ -42,8 +42,12 @@ function buildCards(data) {
                     // console.log(REALURL)
                     fetch(REALURL)
                         .then(res => res.json())
-                        .then(pokeName => img.src = pokeName.sprites.front_default)
-                        .catch(err => img.alt = "No Image Found")
+                        .then(pokeName => {
+                            if (pokeName.sprites.front_default === null) {
+                                return img.alt = "No Image Found"
+                            } else {
+                            img.src = pokeName.sprites.front_default}})
+                        // .catch(err => img.alt = "No Image Found")
             }
             // async function imgSRC() {
             //     let resultArray = await Promise.all(currentIndex).then((value) => {
@@ -85,7 +89,8 @@ function buildCards(data) {
 
 async function searchType(e){
     e.preventDefault();
-    let searchTerm = userInput.value
+    // let searchTerm = userInput.value
+    let searchTerm = types.options[types.selectedIndex].value
     console.log(searchTerm)
     url = baseURL + searchTerm + "/"
     console.log(url)
