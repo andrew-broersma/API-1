@@ -28,11 +28,13 @@ function buildCards(data) {
             let h5 = document.createElement("h5")
             let div = document.createElement("div")
             let link = document.createElement("a")
+            let link2 = document.createElement("a")
             let img = document.createElement("img")
 
             let currentIndex = displayData[i];
             // h5.innerText = currentIndex.pokemon.name
             link.href = "https://bulbapedia.bulbagarden.net/wiki/" + currentIndex.pokemon.name +"_(Pokemon)"
+            link2.href ="https://bulbapedia.bulbagarden.net/wiki/" + currentIndex.pokemon.name +"_(Pokemon)"
             link.innerText = currentIndex.pokemon.name
 
             function getPics(currentIndex) {
@@ -47,7 +49,7 @@ function buildCards(data) {
                                 return img.alt = "No Image Found"
                             } else {
                             img.src = pokeName.sprites.front_default}})
-                        // .catch(err => img.alt = "No Image Found")
+                        .catch(err => img.alt = "No Image Found")
             }
             // async function imgSRC() {
             //     let resultArray = await Promise.all(currentIndex).then((value) => {
@@ -76,10 +78,13 @@ function buildCards(data) {
             getPics(currentIndex)
 
             cards.appendChild(div) //parent.appendChild(child) makes the child INSIDE of the parent element.
-            div.appendChild(img)
+            div.appendChild(link2)
+            div.appendChild(link)
             div.appendChild(h5)
 
             h5.appendChild(link)
+            link2.appendChild(img)
+
             div.classList.add("card")
 
             
